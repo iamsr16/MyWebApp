@@ -6,6 +6,6 @@ COPY src /workspace/src
 RUN mvn -B -f pom.xml clean package -DskipTests
 
 FROM openjdk:11-jdk-slim
-COPY --from=build /target/*.jar app.war
+COPY --from=build /target/Mavenwebproject*.jar demowar2.war
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.war"]
+ENTRYPOINT ["java","-jar","demowar2.war"]
